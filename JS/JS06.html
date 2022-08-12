@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS06</title>
+    <style>
+        h1 {
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        table {
+            border: 1px solid gray;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 5px;
+            border-collapse: collapse;
+        }
+
+        table>tbody {
+            border: 1px solid gray;
+            padding: 5px;
+        }
+
+        table tbody tr>td {
+            padding: 5px 10px;
+            border: 1px solid gray;
+        }
+
+        table tbody tr>td>label {
+            font-size: 20px;
+            text-align: center;
+
+        }
+
+        tbody>tfoot {
+            border: 1px solid gray;
+            padding: 5px;
+        }
+    </style>
+    <script>
+        function Register() {
+            var Name = document.getElementById('username').value;
+            var Pass = document.getElementById('password').value;
+
+            var NgaySinh = new Date(document.getElementById('birthdate').value); // lay gia tri vo => Date
+
+            var age = new Date().getFullYear() - NgaySinh.getFullYear(); //new Date().getFullYear() nam hien tai ----=> tuoi
+            var sexs = document.getElementsByName('sex');
+            var outputSex = -1;
+
+            for (var i = 0; i < sexs.length; i++) {
+                if (sexs[i].checked) {
+                    outputSex = sexs[i].value;
+                    break;
+                }
+                else
+                    continue;
+            }
+
+            if (outputSex == '0') {
+                outputSex = "Nam";
+            }
+            else if (outputSex == '1')
+                outputSex = "Nữ";
+            else
+                alert("Lỗi");
+
+            if (outputSex == "Nam" || outputSex == "Nữ") {
+                var content = document.getElementById('content').value;
+
+                var OutputString = "Chào mừng " + Name + "\n" +
+                    "Bạn là " + outputSex + "\n" +
+                    "Mật khẩu của bạn có " + Pass.length + " ký tự \n" +
+                    "Tuổi của bạn là " + age + "\n" +
+                    "Vấn đề của bạn quan tâm là " + content;
+
+                document.getElementById('output').innerHTML = OutputString;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>đăng kí thành viên</h1>
+    <form method="post" action="/">
+        <table>
+            <tbody>
+                <tr>
+                    <td><label>Tên đăng nhập</label></td>
+                    <td><input type="text" id="username" /></td>
+                </tr>
+                <tr>
+                    <td><label>Mật khẩu</label></td>
+                    <td><input type="password" id="password" /></td>
+                </tr>
+                <tr>
+                    <td><label>Ngày sinh</label></td>
+                    <td><input type="date" id="birthdate"></td>
+                </tr>
+                <tr>
+                    <td><label>Giới tính</label></td>
+                    <td>
+                        <input type="radio" name="sex" value="0" checked />Nam
+                        <input type="radio" name="sex" value="1" />Nữ
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Vấn đề quan tâm</label></td>
+                    <td>
+                        <select id="content">
+                            <option value="Kinh tế" selected="selected">Kinh tế</option>
+                            <option value="Thể thao">Thể thao</option>
+                            <option value="Văn hoá nghệ thuật">Văn hoá nghệ thuật</option>
+                        </select>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="Đăng ký" onclick="Register()" />
+                    </td>
+                    <td>
+                        <input type="reset" value="Huỷ">
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2">
+                        <div class="content-user">
+                            <textarea name="output" id="output" cols="30" rows="20" readonly
+                                style="width: 642px; height: 148px;">
+
+                            </textarea>
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </form>
+</body>
+
+</html>

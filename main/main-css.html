@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng dụng web</title>
+    <link rel="stylesheet" href="main-html.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+</head>
+
+<body>
+    <div class="text-main">
+        <h2 class="name-website">CSS - Cascade Style Sheet</h2>
+    </div>
+    <div class="img">
+        <img src="/image/css.jpg" alt="html.png>" id="btn_open">
+        <div class="btn1">
+            <a href="/main/main-html.html"><button>Prev</button></a>
+            <a href="/main/main-Js.html"><button>Next</button></a>
+        </div>
+    </div>
+    <div class="modal" id="modal">
+        <div class="model_iner">
+            <div class="modal_headr">
+                <p>CSS</p>
+                <i class="fa-solid fa-xmark" id="btnclose"></i>
+            </div>
+            <div class="modal_body">
+                <h2>Bài tập</h2>
+                <p>
+                <ul>
+                    <li><a href="/CSS/cs01.html">Bài 01</a></li>
+                    <li><a href="/CSS/cs02.html">Bài 02</a></li>
+                    <li><a href="/CSS/cs03.html">Bải 03</a></li>
+                    <li><a href="/CSS/cs04.html">Bài 04</a></li>
+                    <li><a href="/CSS/cs05.html">Bài 05</a></li>
+                    <li><a href="/CSS/css06.html">Bài 06</a></li>
+                    <li><a href="/CSS/cs07.html">Bài 07</a></li>
+                    <li><a href="/CSS/cs08.html">Bài 08</a></li>
+                </ul>
+                </p>
+            </div>
+            <div class="modal_footer">
+                <button id="back"><a href="/index.html">Trở về trang chủ</a></button>
+                <button id="close_modal">close</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const btn = document.getElementById('btn_open');
+        const btn_close = document.getElementById('btnclose');
+        console.log(btn_close);
+        const close_modal = document.getElementById('close_modal');
+        const modal = document.getElementById('modal');
+        btn.addEventListener("click", () => {
+            modal.classList.add('show')
+        });
+        btn_close.addEventListener("click", () => {
+
+            modal.classList.remove('show')
+        });
+        close_modal.addEventListener("click", () => {
+
+            modal.classList.remove('show')
+        });
+    </script>
+</body>
+
+</html>

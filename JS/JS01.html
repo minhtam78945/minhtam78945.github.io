@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Js01</title>
+  <style>
+    input[type=button] {
+      margin-top: 50px;
+    }
+  </style>
+  <script>
+  function YearCalculation()
+  {
+    var Birthday = document.getElementById("yearofbirth").value;
+    var age = new Date().getFullYear() - Birthday;
+    document.getElementById("welcome").innerHTML = "Chào bạn " + document.getElementById("name").value + "!";
+    document.getElementById("age").innerHTML = " Tuổi của bạn là :" + age;
+  }
+  </script>
+</head>
+
+<body>
+  <h1>Chương trình tính tuổi</h1>
+  <table border="1">
+    <tbody>
+      <tr>
+        <td>Nhập vào tên của bạn</td>
+        <td><input type="text" id="name" placeholder="Nhập tên của bạn"></td>
+      </tr>
+      <tr>
+        <td>Nhập vào năm sinh</td>
+        <td><input type="number" id="yearofbirth" placeholder="Năm sinh của bạn"></td>
+      </tr>
+    </tbody>
+  </table>
+  <input type="button" value="Tính tuổi" onclick="YearCalculation()">
+  <p id="welcome"></p>
+  <p id="age"></p>
+  <p></p>
+</body>
+
+</html>

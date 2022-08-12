@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQ01</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                var str = "<li>" + $("#name").val() + "</li>";
+                $("ul").append(str);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <p>
+        Nhập tên nôn học <input type="text" placeholder="Enter your something...." id="name" />
+    </p>
+    <ul>
+        <li>Python</li>
+        <li>PHP</li>
+    </ul>
+    <p>
+        <button id="btn">Thêm môn học </button>
+    </p>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J012</title>
+</head>
+<style>
+
+</style>
+
+<body>
+
+    <canvas id="myCanvas" width="300px" height="300px">.</canvas>
+
+    <script>
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.beginPath();
+        var grdcircle = ctx.createRadialGradient(150, 150, 140, 150, 150, 150);
+        grdcircle.addColorStop(0, "red");
+        grdcircle.addColorStop(1, "cyan");
+        ctx.fillStyle = grdcircle;
+        ctx.fillRect(0, 0, 300, 300);
+        ctx.arc(150, 150, 150, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fillStyle = "yellow";
+        ctx.beginPath();
+        ctx.rotate(45 * Math.PI / 180);
+        ctx.fillRect(109, -108, 200, 210);
+        ctx.stroke();
+        ctx.rotate(-45 * Math.PI / 180);
+        ctx.strokeStyle = 'blue';
+        ctx.font = " 70px Arial";
+        ctx.lineWidth = 5;
+        ctx.strokeText("HTML5", 40, 170);
+
+    </script>
+
+</body>
+
+</html>

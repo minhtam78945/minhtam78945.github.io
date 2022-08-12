@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS09</title>
+</head>
+<script>
+    // function PrintResult(str) {
+    //     document.getElementById('outPut').value = str;
+    // }
+    var array = Array(0);
+    function CreateArray() {
+        var length = parseInt(document.getElementById('arrayLength').value);
+        array = Array.from({ length: length }, () => Math.floor(Math.random() * length));
+        console.log(array);
+        // PrintResult("Mảng ban đầu: [" + array + "]");
+        document.getElementById("create").innerHTML = "Mảng ban đầu là : " + array;
+    }
+
+    function compareAsc(a, b) {
+        return a - b;
+    }
+    function compareDesc(a, b) {
+        return b - a;
+    }
+
+    function AscSort() {
+        var AscSortedArray = array.sort(compareAsc);
+        console.log(AscSortedArray);
+        // PrintResult("Mảng tăng dần: [" + AscSortedArray + "]");
+        document.getElementById("create1").innerHTML = "Mảng tăng dần : " + AscSortedArray;
+    }
+    function DescSort() {
+        var DescSortedArray = array.sort(compareDesc);
+        console.log(DescSortedArray);
+        // PrintResult("Mảng giảm dần: [" + DescSortedArray + "]");
+        document.getElementById("create2").innerHTML = "Mảng giảm dần : " + DescSortedArray;
+    }
+</script>
+
+<body>
+    <label>Nhập vào số phần tử:</label>
+    <input type="number" placeholder="Enter number" id="arrayLength" />
+    <br><br>
+    <input type="button" value="Tạo mảng" id="btnCreateArray" onclick="CreateArray()" />
+    <input type="button" value="Xếp mảng tắng dần" id="btnAscSort" onclick="AscSort()" />
+    <input type="button" value="Xếp mảng giảm dần" id="btnDescSort" onclick="DescSort()" />
+    <p id="create"></p>
+    <p id="create1"></p>
+    <p id="create2"></p>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS05</title>
+    <script>
+        function Append(element) {
+            document.getElementById("kq").appendChild(element);
+        }
+
+        window.onload = () => {
+            let tr = document.createElement('tr'); // Tao the <tr></tr> // luc nay chua co noi dung
+
+            for (let i = 2; i < 10; i++) {
+                if ((i - 2) % 4 == 0) {
+                    tr = document.createElement('tr');
+                }
+
+                let td = document.createElement('td'); // Tao 1 the <td></td>
+
+                for (let j = 1; j < 10; j++) {
+                    let p = document.createElement('p'); // Tao the <p></p>
+                    p.textContent = i + " x " + j + " = " + i * j; // gan vo p : <p>2 x 1 = 2</p>
+
+                    td.appendChild(p); // <td><p>2 x 1 = 2</p></td>
+                } // khi j toi 9
+
+                tr.appendChild(td); //<tr><td><p>2 x 1 = 2</p></td></tr>
+                
+
+                if ((i - 1) % 4 == 0) {
+                    console.log(tr);
+                    Append(tr);
+
+                }
+            }
+        }
+    </script>
+    <style>
+        #kq {
+            border: 1px solid black;
+        }
+
+        #kq>tr>td {
+            border: 1px solid black;
+        }
+
+        p {
+            padding: 0 15px;
+        }
+        table
+        {
+            margin-left: auto;
+            margin-right: auto;
+            /* border-collapse: collapse; */
+        }
+        h1 {
+            text-transform: uppercase;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Bảng cửu Chương</h1>
+    <table id="kq">
+    </table>
+
+</body>
+
+</html>

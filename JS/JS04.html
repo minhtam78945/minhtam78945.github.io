@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS04</title>
+</head>
+<style>
+    h1 {
+        text-align: center;
+        text-transform: uppercase;
+        text-shadow: 5px 5px 5px gray;
+    }
+
+    table {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
+    }
+
+    table tbody>tr {
+        border: 1px solid black;
+    }
+
+    table tbody>tr>td {
+        border: 1px solid black;
+        padding: 5px;
+    }
+</style>
+<script>
+    function Print(result) {
+        document.getElementById('result').value = result;
+    }
+
+    function Solve() {
+        var num1 = parseFloat(document.getElementById('number-1').value);
+        var num2 = parseFloat(document.getElementById('number-2').value);
+        var opeartor = '';
+
+        var options = document.getElementsByName('opeartor'); // index start = 0
+        for (var i = 0; i < options.length; i++) {
+            if (options[i].checked) { // kiem tra cai nao dc check
+                opeartor = options[i].value;
+                break;
+            }
+            else
+                continue;
+        }
+        switch (opeartor) {
+            case '0': //Cong
+                Print(num1 + num2);
+                break;
+            case '1': //Tru
+                Print(num1 - num2);
+                break;
+            case '2': //Nhan
+                Print(num1 * num2);
+                break;
+            case '3': //Chia
+                if (num2 == 0)
+                    alert("Bao loi");
+                else
+                    Print(num1 / num2);
+                break;
+            default: // -1 loi hoac chua chon
+                alert("Choose one!");
+        }
+    }
+</script>
+
+<body>
+
+    <h1>Các Phép Tính số học</h1>
+    <table>
+        <tbody>
+            <tr>
+                <td>Số thứ 1</td>
+                <td><input type="number" id="number-1" placeholder="Enter your number"></td>
+            </tr>
+            <tr>
+                <td>Số thứ 2</td>
+                <td><input type="number" id="number-2" placeholder="Enter your number"></td>
+            </tr>
+            <tr>
+                <td>Chọn Phép Toán </td>
+                <td>
+                    <form id="opeartorForm">
+                        <input type="radio" name="opeartor" value="0" title="Cộng" />Cộng
+                        <br>
+                        <input type="radio" name="opeartor" value="1" title="Trừ" /> Trừ
+                        <br>
+                        <input type="radio" name="opeartor" value="2" title="Nhân" /> Nhân
+                        <br>
+                        <input type="radio" name="opeartor" value="3" title="Chia" /> Chia
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Thực Hiện" onclick="Solve()" /></td>
+                <td><input type="text" id="result" value="" placeholder="Kết quả phép toán" readonly /></td>
+            </tr>
+        </tbody>
+    </table>
+    <p id="error"></p>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS03</title>
+    <style>
+        h1 {
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 50px;
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid gray;
+            width: 20%;
+            border-collapse: collapse;
+        }
+
+        table tbody {
+            border: 1px solid gray;
+            padding: 5px;
+        }
+
+        table tbody tr>td {
+            padding: 5px 10px;
+            border: 1px solid gray;
+        }
+
+        table tbody tr>td>label {
+            font-size: 20px;
+            text-align: center;
+
+        }
+
+        tbody,
+        tfoot {
+            background-color: #FFFFCC;
+            border: 1px solid gray;
+            padding: 10px;
+        }
+
+        input[type=button]:hover {
+            background-color: cadetblue;
+        }
+
+        input[type=reset]:hover {
+            background-color: cadetblue;
+        }
+
+        p {
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+    <script>
+        function SolvePTT2() {
+            var a = document.getElementById("a").value;
+            var b = document.getElementById("b").value;
+            var c = document.getElementById("c").value;
+            a = parseFloat(a);
+            b = parseFloat(b);
+            c = parseFloat(c);
+            if (a == 0) {
+                if (b == 0) {
+                    if (c == 0) {
+                        document.getElementById("result").innerHTML = "Phương trình vô số nghiệm";
+                    }
+                    else {
+                        document.getElementById("result").innerHTML = "Phương trình vô nghiệm"
+                    }
+
+                }
+                else {
+                    var d = -c / b;
+                    document.getElementById("result").innerHTML = "Phương trình có nghệm duy nhất x = " + d;
+                }
+            }
+            else {
+                var deta;
+                deta = b * b - 4 * a * c;
+                if (deta > 0) {
+                    var x1 = (-b + Math.sqrt(deta)) / 2 * a;
+                    var x2 = (-b - Math.sqrt(deta)) / 2 * a;
+                    document.getElementById("result").innerHTML = "Phương trình có x1 = " + x1;
+                    document.getElementById("result1").innerHTML = "Phương trình có x2 = " + x2;
+
+                }
+                else if (deta == 0) {
+                    var x = -b / 2 * a;
+                    document.getElementById("result").innerHTML = "Phương trình có x1 = x2 " + x;
+                }
+                else
+                    document.getElementById("result").innerHTML = "Phương trình có vô nghiệm ";
+            }
+
+        }
+    
+    </script>
+</head>
+
+<body>
+    <h1>chương trình phải phương trình bậc 2</h1>
+    <h3>ax<sup>2</sup>+bx+c=0</h3>
+    <form method="post" action="/">
+        <table>
+            <tbody>
+                <tr>
+                    <td><label>a = </label></td>
+                    <td><input type="number" id="a" placeholder="Enter your number"></td>
+                </tr>
+                <tr>
+                    <td><label>b = </label></td>
+                    <td><input type="number" id="b" placeholder="Enter your number"></td>
+                </tr>
+                <tr>
+                    <td><label>c =</label></td>
+                    <td><input type="number" id="c" placeholder="Enter your number"></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td> <input type="button" value="Giải" onclick="SolvePTT2()">
+                        <input type="reset" value="Reset">
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </form>
+    <p id="result">
+    <p id="result1"></p>
+    </p>
+</body>
+
+</html>

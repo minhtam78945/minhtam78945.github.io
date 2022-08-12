@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQ02</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                var date1 = $("#dayform").val();
+                var date2 = $("#dayto").val();
+                date1 = new Date(date1);
+                date2 = new Date(date2);
+                var re = (date2.getTime() - date1.getTime()) / (3600 * 24 * 1000);
+                $("#kq").text("Kết quả " + re + " ngày ");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Tính số ngày giữa hai thời điểm</h1>
+    Từ ngày <input type="date" id="dayform" />
+    <br>
+    Đến ngày <input type="date" id="dayto" />
+    <br><br>
+    <button id="btn">Tính số ngày</button>
+    <p id="kq"></p>
+</body>
+
+</html>
